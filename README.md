@@ -16,9 +16,6 @@ The key features include:
 ### Requirements
 Before setting up and running this project, ensure you have the following prerequisites installed on your machine:
 
-- **.NET 8 SDK**: Required to build and run the backend of the application.
-    - [Download .NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-
 - **Node.js (version 14.x or later)**: Necessary for the frontend development.
     - [Download Node.js](https://nodejs.org/)
 

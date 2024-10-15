@@ -1,0 +1,56 @@
+<div class="w-full">
+    <div class="mt-24 w-full md:w-5/6 mx-auto">
+        <div class="w-full">
+            <input type="text" placeholder="Search for a Ticket" value="filterText" [(ngModel)]="filterText"
+                   class="block w-full h-14 bg-gray-50 border border-gray-300 focus:text-gray-600 text-xl rounded-lg p-2
+             focus:border-2 focus:border-gray-300 focus:outline-none dark:bg-[#181a1b] dark:text-white">
+        </div>
+        <table class="w-full mt-8 md:text-xl">
+            <thead class="text-left bg-[#02a35b] text-white border border-gray-200">
+            <tr>
+                <th class="p-3 border border-gray-200 ">Ticket Id</th>
+                <th class="p-3 border border-gray-200">Description</th>
+                <th class="p-3 border border-gray-200">Status</th>
+                <th class="p-3 border border-gray-200">Date</th>
+                <th class="p-3 border border-gray-200">Actions</th>
+            </tr>
+            </thead>
+            <tbody class="font-semibold border border-[#adb4be] dark:text-white">
+                @for (ticket of filteredTickets(); track ticket.id) {
+                    <tr  class="border border-[#adb4be]">
+                        <td class="p-2.5 border border-gray-300">{{ ticket.id }}</td>
+                        <td class="p-2.5 border border-gray-300">{{ ticket.description }}</td>
+                        <td class="p-2.5 border border-gray-300">{{ ticket.status }}</td>
+                        <td class="p-2.5 border border-gray-300">{{ ticket.createOn | formatDate }}</td>
+                        <td class="p-2.5 border border-gray-300">
+                            <a class="mr-4 text-blue-500 underline" (click)="updateTicket(ticket.id || 0)">Update</a>
+                            @if (selectedTicketId == ticket.id) {
+                                <app-edit-task [ticketId]="ticket.id || 0"></app-edit-task>
+                            }
+                            <a href="#" class="text-blue-500 underline" (click)="deleteTicket(ticket.id)">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+
+            <tr class="border border-gray-200">
+                <td class="px-3.5 py-3 text-white flex justify-start ">
+          <span (click)="showModal()"
+                class="bg-[#02a35b] hover:bg-green-400 px-4 py-2.5 cursor-pointer rounded-md font-medium text-sm">
+               Add New
+             <app-add-task></app-add-task>
+          </span>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="flex justify-start">
+                    <app-pagination></app-pagination>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

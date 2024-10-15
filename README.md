@@ -62,3 +62,6 @@ To set up the project locally, follow these steps:
 
 ### Edit Ticket
 ![Output Image](./images/img_3.png)
+
+### Search Ticket
+![Output Image](./images/img_4.png)
